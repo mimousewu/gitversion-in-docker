@@ -1,0 +1,9 @@
+FROM ngeor/gitversion
+
+ENV APP /repo
+
+COPY entrypoint-gitversion.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+#ENTRYPOINT [ "mono", "/app/GitVersion.exe", "/repo" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
